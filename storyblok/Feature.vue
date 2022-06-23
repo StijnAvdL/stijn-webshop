@@ -16,6 +16,13 @@
   </div>
 </template>
  
-<script setup>
-defineProps({ blok: Object })
+<script lang="ts">
+export default {
+  props: {
+    blok: {
+      type: Object,
+      default: {} // TODO geen mooie oplossing!
+    },
+  },
+}
 </script>

@@ -1,12 +1,12 @@
 <script setup>
-const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get('cdn/stories/menu', {
-  version: 'draft',
-  resolve_links: 'url',
-})
- 
-const headerMenu = ref(null)
-headerMenu.value = data.story.content.header_menu
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/menu", {
+  version: "draft",
+  resolve_links: "url",
+});
+
+const headerMenu = ref(null);
+headerMenu.value = data.story.content.header_menu;
 </script>
  
 <template>
@@ -28,7 +28,7 @@ headerMenu.value = data.story.content.header_menu
   </header>
 </template>
 
-<style scoped>
+<style scope>
 nav a.router-link-active {
   @apply underline underline-offset-4 decoration-4 decoration-[#50b0ae];
 }

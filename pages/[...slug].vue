@@ -1,4 +1,4 @@
-<script setup>
+<script>
 const { slug } = useRoute().params
  
 const story = await useStoryblok(slug ? slug : 'home', {

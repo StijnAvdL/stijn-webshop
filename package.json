@@ -4,9 +4,13 @@
     "build": "nuxt build",
     "dev": "nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "lint": "eslint --ext .ts,.js,.vue ."
   },
   "devDependencies": {
+    "@nuxtjs/eslint-config": "^10.0.0",
+    "@nuxtjs/eslint-config-typescript": "^10.0.0",
+    "eslint": "^8.18.0",
     "nuxt": "3.0.0-rc.4"
   },
   "dependencies": {
