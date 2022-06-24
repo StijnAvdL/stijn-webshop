@@ -10,7 +10,16 @@
     />
   </div>
 </template>
- 
-<script setup>
-defineProps({ blok: Object })
+
+<script lang="ts">
+import { defineComponent } from "vue";
+export default defineComponent({
+  props: {
+    blok: {
+      type: Object,
+      required: true,
+      default: {},
+    },
+  },
+});
 </script>

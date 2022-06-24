@@ -1,14 +1,3 @@
-<script setup>
-const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get("cdn/stories/menu", {
-  version: "draft",
-  resolve_links: "url",
-});
-
-const headerMenu = ref(null);
-headerMenu.value = data.story.content.header_menu;
-</script>
- 
 <template>
   <header class="w-full h-24 bg-[#f7f6fd]">
     <div class="container h-full mx-auto flex items-center justify-between">
@@ -27,6 +16,17 @@ headerMenu.value = data.story.content.header_menu;
     </div>
   </header>
 </template>
+
+<script setup>
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/menu", {
+  version: "draft",
+  resolve_links: "url",
+});
+
+const headerMenu = ref(null);
+headerMenu.value = data.story.content.header_menu;
+</script>
 
 <style scope>
 nav a.router-link-active {

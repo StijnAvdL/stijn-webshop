@@ -42,16 +42,17 @@
 </template>
  
 <script lang="ts">
-import { reactive, toRefs } from "vue";
+import { reactive, toRefs, PropType, defineComponent } from "vue";
 import { useStoryblokApi } from "@storyblok/vue";
+import { StoryblokAccordion } from "../types";
 
 const storyblokApi = useStoryblokApi();
 
-export default {
+export default defineComponent({
   props: {
     blok: {
-      type: Object,
-      default: {} // TODO geen mooie oplossing!
+      type: Object as PropType<StoryblokAccordion>,
+      required: true,
     },
   },
   setup(props) {
@@ -72,7 +73,7 @@ export default {
       ...toRefs(state),
     };
   },
-};
+});
 </script>
 
 <style scoped>

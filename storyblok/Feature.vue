@@ -17,12 +17,15 @@
 </template>
  
 <script lang="ts">
-export default {
+import { PropType, defineComponent } from "vue";
+import { StoryblokFeature } from "../types";
+
+export default defineComponent({
   props: {
     blok: {
-      type: Object,
-      default: {} // TODO geen mooie oplossing!
+      type: Object as PropType<StoryblokFeature>,
+      required: true,
     },
   },
-}
+})
 </script>
