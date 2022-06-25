@@ -40,3 +40,14 @@ npm run preview
 ```
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+
+
+## Run server
+```bash
+npm install -g json-server
+```
+
+then 
+```
+yarn run server
+```

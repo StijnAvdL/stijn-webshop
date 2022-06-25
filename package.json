@@ -3,6 +3,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
+    "server": "json-server --watch ./server/db.json --port 3030",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint --ext .ts,.js,.vue ."
@@ -14,8 +15,11 @@
     "nuxt": "3.0.0-rc.4"
   },
   "dependencies": {
+    "@nuxtjs/composition-api": "^0.32.0",
     "@nuxtjs/tailwindcss": "^5.1.2",
+    "@pinia/nuxt": "^0.1.9",
     "@storyblok/nuxt": "^4.0.1",
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "pinia": "^2.0.14"
   }
 }
