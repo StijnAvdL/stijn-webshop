@@ -12,7 +12,8 @@
     "@nuxtjs/eslint-config": "^10.0.0",
     "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "eslint": "^8.18.0",
-    "nuxt": "3.0.0-rc.4"
+    "nuxt": "3.0.0-rc.4",
+    "vite-svg-loader": "^3.4.0"
   },
   "dependencies": {
     "@nuxtjs/composition-api": "^0.32.0",

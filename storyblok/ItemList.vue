@@ -9,7 +9,10 @@
         />
         <div>
           <p class="text-xl font-bold">{{ product.title }}</p>
-          <p>{{ product.rating }} {{product.reviews }} Review</p>
+          <div>
+            <Rating :value="product.rating" />
+            <p>{{ product.reviews }} reviews</p>
+          </div>
 
           <p>{{ transformPrice(product.price) }}</p>
         </div>
@@ -27,7 +30,7 @@ export default {
     const prodcutStore = useProductStore();
 
     await prodcutStore.fetchProductPage(1);
-
+    
     const { products } = storeToRefs(prodcutStore);
 
     const transformPrice = (price: number) => {

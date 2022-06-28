@@ -16,20 +16,8 @@
         :aria-expanded="visible"
       >
         <span>{{ blok.headline }}</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-3 w-3"
-          fill="black"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            :d="visible ? 'M20 12H4' : 'M12 4v16m8-8H4'"
-          />
-        </svg>
+        <MinusIcon v-if="visible" />
+        <PlusIcon  v-if="!visible"/>
       </button>
     </h2>
     <Transition name="content">
@@ -41,17 +29,18 @@
   </div>
 </template>
  
-<script lang="ts">
-import { reactive, toRefs, PropType, defineComponent } from "vue";
+<script>
+import { reactive, toRefs } from "vue";
 import { useStoryblokApi } from "@storyblok/vue";
-import { StoryblokAccordion } from "../types";
+import MinusIcon from "@/assets/svg/minus.svg";
+import PlusIcon from "@/assets/svg/plus.svg";
 
 const storyblokApi = useStoryblokApi();
 
 export default defineComponent({
   props: {
     blok: {
-      type: Object as PropType<StoryblokAccordion>,
+      type: Object,
       required: true,
     },
   },
@@ -61,6 +50,7 @@ export default defineComponent({
       icon: "plus",
     });
     const content = storyblokApi.richTextResolver.render(props.blok.content);
+
 
     const toggle = () => {
       state.visible = !state.visible;
@@ -73,6 +63,7 @@ export default defineComponent({
       ...toRefs(state),
     };
   },
+  components: { MinusIcon, PlusIcon },
 });
 </script>
 
