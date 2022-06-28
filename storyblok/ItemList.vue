@@ -3,7 +3,7 @@
     <div v-for="product in products" :key="product.id">
       <div class="flex sm:flex-row md:flex-col p-6">
         <img
-          class="w-1/2 md:w-auto pb-3 pr-3"
+          class="w-1/2 md:w-auto h-48 pb-3 pr-3 object-cover"
           :src="product.thumbnail"
           :alt="product.title"
         />
