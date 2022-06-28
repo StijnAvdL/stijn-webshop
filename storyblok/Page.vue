@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" class="font-[Roboto] px-4">
+  <div v-editable="blok" class="font-sans px-4">
     <StoryblokComponent
       v-for="blok in blok.body"
       :key="blok._uid"
