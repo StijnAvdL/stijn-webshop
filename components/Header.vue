@@ -1,13 +1,13 @@
 <template>
-  <header class="w-full h-24 bg-[#f7f6fd]">
+  <header class="w-full h-24 bg-blue-600">
     <div class="container h-full mx-auto flex items-center justify-between">
       <NuxtLink to="/">
-        <h1 class="text-[#50b0ae] text-3xl font-bold">Stijn's Webshop</h1>
+        <h1 class="text-white text-3xl font-bold">Stijn's Webshop</h1>
       </NuxtLink>
       <nav v-if="headerMenu">
         <ul class="flex space-x-8 text-lg font-bold">
           <li v-for="blok in headerMenu" :key="blok._uid">
-            <NuxtLink :to="blok.link.cached_url" class="hover:text-[#50b0ae]">
+            <NuxtLink :to="blok.link.cached_url" class="hover:text-orange-400 text-white">
               {{ blok.link.story.name }}
             </NuxtLink>
           </li>
@@ -30,6 +30,6 @@ headerMenu.value = data.story.content.header_menu;
 
 <style scope>
 nav a.router-link-active {
-  @apply underline underline-offset-4 decoration-4 decoration-[#50b0ae];
+  @apply underline underline-offset-4 decoration-4 decoration-orange-600;
 }
 </style>

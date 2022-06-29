@@ -1,22 +1,7 @@
 <template>
-  <div v-if="products" class="grid grid-cols-1 md:grid-cols-2 md:gap-2">
+  <div v-if="products" class="grid grid-cols-1 md:grid-cols-2 md:gap-2 mx-auto container">
     <div v-for="product in products" :key="product.id">
-      <div class="flex sm:flex-row md:flex-col p-6">
-        <img
-          class="w-1/2 md:w-auto h-48 pb-3 pr-3 object-cover"
-          :src="product.thumbnail"
-          :alt="product.title"
-        />
-        <div>
-          <p class="text-xl font-bold">{{ product.title }}</p>
-          <div>
-            <Rating :value="product.rating" />
-            <p>{{ product.reviews }} reviews</p>
-          </div>
-
-          <p>{{ transformPrice(product.price) }}</p>
-        </div>
-      </div>
+      <Item :product="product" />
     </div>
   </div>
 </template>
@@ -24,26 +9,20 @@
 <script lang="ts">
 import { storeToRefs } from "pinia";
 import { useProductStore } from "../stores/ProductStore";
+import Item from "./Item.vue";
 
 export default {
   async setup() {
     const prodcutStore = useProductStore();
 
     await prodcutStore.fetchProductPage(1);
-    
-    const { products } = storeToRefs(prodcutStore);
 
-    const transformPrice = (price: number) => {
-      return new Intl.NumberFormat("nl-NL", {
-        style: "currency",
-        currency: "EUR",
-      }).format(price);
-    };
+    const { products } = storeToRefs(prodcutStore);
 
     return {
       products,
-      transformPrice,
     };
   },
+  components: { Item },
 };
 </script>
