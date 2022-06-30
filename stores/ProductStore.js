@@ -27,7 +27,7 @@ export const useProductStore = defineStore('ProductStore', {
           throw error
         })
     },
-    fetchProductPage(page = 1) {
+    fetchProductPage(page) {
       return ProductService.getProductPage(page)
         .then(response => {
           this.products = response.data

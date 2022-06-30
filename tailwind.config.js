@@ -3,6 +3,7 @@ module.exports = {
     theme: {
       colors: {
         'blue': {
+          200: "#e8f7ff",
           600: "#0090e3",
           700: "#285dab"
         },
@@ -11,7 +12,10 @@ module.exports = {
           600: '#ff6600',
         },
         'white': '#fff',
-        "grey": "#848484"
+        "grey": {
+          400: "#d3d3d3",
+          600: "#848484",
+        }
       },
     }
 }

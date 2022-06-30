@@ -27,7 +27,7 @@
       <div class="md:flex flex-row">
         <div class="pb-1">
           <p>
-            <span class="text-grey font-bold line-through pr-3">{{
+            <span class="text-grey-600 font-bold line-through pr-3">{{
               transformPrice(product.price)
             }}</span>
             <span class="font-bold">{{
