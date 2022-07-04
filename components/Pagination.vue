@@ -3,77 +3,28 @@
     v-if="props.numberOfPages > 1"
     class="flex flex-row text-center justify-center"
   >
-    <div
-      class="
-        border border-grey-400
-        hover:border-grey-600
-        rounded
-        m-1
-        h-8
-        w-8
-        pt-0.5
-        cursor-pointer
-      "
-    >
+    <Button v-if="currentPage !== 1" :to="'/?page=' + (currentPage - 1)">
       <LeftIcon />
-    </div>
+    </Button>
+    <div v-else class="w-10"></div>
     <div class="grid grid-cols-7 gap-1">
       <div v-for="page in generateNumbers()" :key="page">
-        <div v-if="page === props.currentPage">
-          <div
-            class="
-              border border-blue-600
-              bg-blue-200
-              rounded
-              m-1
-              h-8
-              w-8
-              pt-0.5
-              cursor-pointer
-              font-bold
-            "
-          >
-            {{ page }}
-          </div>
-        </div>
-        <div v-else-if="isNaN(page)">
-          <div class="m-1">{{ page }}</div>
-        </div>
-        <div v-else>
-          <NuxtLink :to="'/?page=' + page">
-            <div
-              class="
-                border border-grey-400
-                hover:border-grey-600
-                rounded
-                m-1
-                h-8
-                w-8
-                pt-0.5
-                cursor-pointer
-                text-blue-600
-              "
-            >
-              {{ page }}
-            </div>
-          </NuxtLink>
-        </div>
+        <Button v-if="page === props.currentPage" :active="true">
+          {{ page }}
+        </Button>
+        <div v-else-if="isNaN(page)" class="m-1">{{ page }}</div>
+        <Button v-else :to="'/?page=' + page">
+          {{ page }}
+        </Button>
       </div>
     </div>
-    <div
-      class="
-        border border-grey-400
-        hover:border-grey-600
-        rounded
-        m-1
-        h-8
-        w-8
-        pt-0.5
-        cursor-pointer
-      "
+    <Button
+      v-if="currentPage !== numberOfPages"
+      :to="'/?page=' + (currentPage + 1)"
     >
       <RightIcon />
-    </div>
+    </Button>
+    <div v-else class="w-10"></div>
   </div>
 </template>
 
