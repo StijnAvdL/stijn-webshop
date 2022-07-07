@@ -38,7 +38,7 @@ watch([route], () => changePage());
 
 // change filter
 watch([filters], () => {
-  router.push({ path: "/", params: { page: 1 } });
+  router.push("/");
   productStore.fetchNumberOfProducts(filters);
   changePage();
 });
