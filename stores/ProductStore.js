@@ -1,40 +1,41 @@
-import { defineStore } from 'pinia'
-import ProductService from '../services/ProductService'
+import { defineStore } from "pinia";
+import ProductService from "../services/ProductService";
 
-export const useProductStore = defineStore('ProductStore', {
+export const useProductStore = defineStore("ProductStore", {
   state() {
     return {
       products: [],
-      product: {}
-    }
+      product: {},
+      numberOfPages: 0,
+    };
   },
   actions: {
     fetchProduct(id) {
       return ProductService.getProduct(id)
-        .then(response => {
-          this.product = response.data
+        .then((response) => {
+          this.product = response.data;
         })
-        .catch(error => {
-          throw error
-        })
+        .catch((error) => {
+          throw error;
+        });
     },
-    fetchProducts() {
-      return ProductService.getProducts()
-        .then(response => {
-          this.products = response.data
+    fetchNumberOfProducts(filters) {
+      return ProductService.getProducts(filters)
+        .then((response) => {
+          this.numberOfPages = Math.ceil(response.data.length/10);
         })
-        .catch(error => {
-          throw error
-        })
+        .catch((error) => {
+          throw error;
+        });
     },
-    fetchProductPage(page) {
-      return ProductService.getProductPage(page)
-        .then(response => {
-          this.products = response.data
+    fetchProductPage(page, filters) {
+      return ProductService.getProductPage(page, filters)
+        .then((response) => {
+          this.products = response.data;
         })
-        .catch(error => {
-          throw error
-        })
-    }
-  }
-})
+        .catch((error) => {
+          throw error;
+        });
+    },
+  },
+});
