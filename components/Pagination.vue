@@ -7,7 +7,7 @@
       <LeftIcon />
     </Button>
     <div v-else class="w-10"></div>
-    <div class="grid grid-cols-7 gap-1">
+    <div class="grid grid-flow-col auto-cols-[minmax(0,4fr)]">
       <div v-for="page in generateNumbers()" :key="page">
         <Button v-if="page === props.currentPage" :active="true">
           {{ page }}
