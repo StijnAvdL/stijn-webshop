@@ -1,13 +1,19 @@
 <template>
   <div>
-    <Pagination :current-page="currentPage" :number-of-pages="numberOfPages" />
-    <Filter :options="categories" :onChange="filterCategories" />
-    <div
-      v-if="products"
-      class="grid grid-cols-1 md:grid-cols-2 md:gap-2 mx-auto container"
-    >
-      <div v-for="product in products" :key="product.id">
-        <Product :product="product" />
+    <div class="grid grid-cols-5">
+      <div>
+        <Filter :options="categories" :onChange="filterCategories" />
+      </div>
+      <div class="col-span-4">
+        <div
+          v-if="products"
+          class="grid grid-cols-1 md:grid-cols-2 md:gap-2 mx-auto container"
+        >
+          <div v-for="product in products" :key="product.id">
+            <Product :product="product" />
+          </div>
+        </div>
+        <Pagination :current-page="currentPage" :number-of-pages="numberOfPages" />
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-3 gap-2 mx-auto container">
+  <div class="grid grid-cols-1">
     <div v-for="option in props.options" :key="option">
       <Checkbox :name="option.name" @on-change="onChange" />
     </div>
