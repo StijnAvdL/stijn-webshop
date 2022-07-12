@@ -13,4 +13,7 @@ export default defineNuxtConfig({
     vite: {
         plugins: [svgLoader()]
     },
+
+    // https://v3.nuxtjs.org/guide/deploy/static-hosting/
+    ssr: false,
 })
