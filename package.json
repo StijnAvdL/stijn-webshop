@@ -16,6 +16,7 @@
     "vite-svg-loader": "^3.4.0"
   },
   "dependencies": {
+    "@nuxt/image-edge": "^1.0.0-27621400.93ce78a",
     "@nuxtjs/composition-api": "^0.32.0",
     "@nuxtjs/tailwindcss": "^5.1.2",
     "@pinia/nuxt": "^0.1.9",

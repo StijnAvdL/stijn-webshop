@@ -3,27 +3,27 @@
     v-if="props.numberOfPages > 1"
     class="flex flex-row text-center justify-center"
   >
-    <Button v-if="currentPage !== 1" :to="'/?page=' + (currentPage - 1)">
+    <PaginationButton v-if="currentPage !== 1" :to="'/?page=' + (currentPage - 1)">
       <LeftIcon />
-    </Button>
+    </PaginationButton>
     <div v-else class="w-10"></div>
     <div class="grid grid-flow-col auto-cols-[minmax(0,4fr)]">
       <div v-for="page in generateNumbers()" :key="page">
-        <Button v-if="page === props.currentPage" :active="true">
+        <PaginationButton v-if="page === props.currentPage" :active="true">
           {{ page }}
-        </Button>
+        </PaginationButton>
         <div v-else-if="isNaN(page)" class="m-1">{{ page }}</div>
-        <Button v-else :to="'/?page=' + page">
+        <PaginationButton v-else :to="'/?page=' + page">
           {{ page }}
-        </Button>
+        </PaginationButton>
       </div>
     </div>
-    <Button
+    <PaginationButton
       v-if="currentPage !== numberOfPages"
       :to="'/?page=' + (currentPage + 1)"
     >
       <RightIcon />
-    </Button>
+    </PaginationButton>
     <div v-else class="w-10"></div>
   </div>
 </template>
@@ -31,6 +31,7 @@
 <script setup>
 import LeftIcon from "@/assets/svg/left.svg";
 import RightIcon from "@/assets/svg/right.svg";
+import { onBeforeRouteUpdate } from "vue-router";
 
 const props = defineProps({
   numberOfPages: {
@@ -42,6 +43,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+onBeforeRouteUpdate(() => window.scrollTo({top: 0, behavior: 'smooth'}));
 
 const generateNumbers = () => {
   var pageNumbers = null;

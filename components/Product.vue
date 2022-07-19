@@ -1,6 +1,6 @@
 <template>
   <div class="flex sm:flex-row md:flex-col p-3">
-    <img
+    <nuxt-img
       class="w-1/2 md:w-auto h-48 pb-3 object-cover pr-3 md:pr-0"
       :src="product.thumbnail"
       :alt="product.title"
