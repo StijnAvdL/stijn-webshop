@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Button size="xs">This is a button</Button>
     <div class="grid grid-cols-5">
       <div>
         <Filter :options="categories" :onChange="filterCategories" />
@@ -13,7 +14,10 @@
             <Product :product="product" />
           </div>
         </div>
-        <Pagination :current-page="currentPage" :number-of-pages="numberOfPages" />
+        <Pagination
+          :current-page="currentPage"
+          :number-of-pages="numberOfPages"
+        />
       </div>
     </div>
   </div>
